@@ -14,7 +14,7 @@ Valid operators for filtering:
 - &gt;=: Greater than or equal to
 
 For string values, you can use:
-- Wilcard: the ! character can be used as a wildcard. For example, **first_name=!john** would return records where the *first_name* field contains 'john'.
+- Wilcard: the ! character can be used as a wildcard. For example, **first_name=J!** would return records where the *first_name* field starts with 'J'.
 - List: multiple values may be included in a key-value pair like, **first_name=Jane,John,Sue**
 
 ## Sorting
