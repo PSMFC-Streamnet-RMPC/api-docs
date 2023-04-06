@@ -9,7 +9,7 @@ Valid operators for filtering:
 - =: Equals
 - <>: Not equals
 - <: Less than
-- >: Greater than
+- ">": Greater than
 - <=: Less than or equal to
 - >=: Greater than or equal to
 
