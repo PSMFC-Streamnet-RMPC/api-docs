@@ -18,7 +18,7 @@ For string/date values, you can use:
 - List: multiple values may be included in a key-value pair like, **first_name=Jane,John,Sue**
 
 ## Sorting
-To sort the results, include a key-value pair with the key 'sort' and use the '=' operator. The value should be a comma-separated list of column names and their respective sorting orders ('asc' or 'desc'). For example: sort=name|asc,age|desc.
+To sort the results, include a key-value pair with the key 'sort' and use the '=' operator. The value should be a comma-separated list of field names and their respective sorting orders ('asc' or 'desc'). For example: sort=first_name|asc,created|desc.
 
 ## Pagination
 To paginate the results, include the following key-value pairs with '=' operator:
