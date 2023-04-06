@@ -13,8 +13,8 @@ Valid operators for filtering:
 - <=: Less than or equal to
 - &gt;=: Greater than or equal to
 
-For string values, you can use:
-- Wilcard: the ! character can be used as a wildcard. For example, **first_name=J!** would return records where the *first_name* field starts with 'J'.
+For string/date values, you can use:
+- Wilcard: the ! character can be used as a wildcard. For example, **first_name=J!** would return records where the *first_name* field starts with 'J'. Or, **created=2022-02-!** would return only records where *created* equals February, 2022.
 - List: multiple values may be included in a key-value pair like, **first_name=Jane,John,Sue**
 
 ## Sorting
