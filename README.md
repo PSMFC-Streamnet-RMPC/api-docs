@@ -23,8 +23,9 @@ To sort the results, include a key-value pair with the key 'sort' and use the '=
 ## Pagination
 To paginate the results, include the following key-value pairs with '=' operator:
 
-page: The page number (starting from 1)
-perpage: The number of records per page
+- page: The page number (starting from 1)
+- perpage: The number of records per page
+
 For example, page=2&perpage=20.
 
 Here's a sample query string that filters, sorts, and paginates the results:
