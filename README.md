@@ -6,12 +6,13 @@ The query string should contain key-value pairs separated by the respective oper
 
 Valid operators for filtering:
 
-=: Equals
-<>: Not equals
-<: Less than
->: Greater than
-<=: Less than or equal to
->=: Greater than or equal to
+-=: Equals
+-<>: Not equals
+-<: Less than
+->: Greater than
+-<=: Less than or equal to
+->=: Greater than or equal to
+
 For string values, you can use the ! character as a wildcard. For example, name!john would return records where the name contains 'john'.
 
 2. Sorting:
