@@ -18,7 +18,7 @@ For string values, you can use the ! character as a wildcard. For example, name!
 ## Sorting
 To sort the results, include a key-value pair with the key 'sort' and use the '=' operator. The value should be a comma-separated list of column names and their respective sorting orders ('asc' or 'desc'). For example: sort=name|asc,age|desc.
 
-3. Pagination:
+## Pagination
 To paginate the results, include the following key-value pairs with '=' operator:
 
 page: The page number (starting from 1)
