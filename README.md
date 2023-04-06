@@ -9,9 +9,9 @@ Valid operators for filtering:
 - =: Equals
 - <>: Not equals
 - <: Less than
-- ">": Greater than
+- &gt;: Greater than
 - <=: Less than or equal to
-- >=: Greater than or equal to
+- &gt;=: Greater than or equal to
 
 For string values, you can use the ! character as a wildcard. For example, name!john would return records where the name contains 'john'.
 
