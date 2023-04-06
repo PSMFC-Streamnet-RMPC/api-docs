@@ -14,7 +14,8 @@ Valid operators for filtering:
 - &gt;=: Greater than or equal to
 
 For string values, you can use:
-- Wilcard: the ! character can be used as a wildcard. For example, first_name=!john would return records where the name contains 'john'.
+- Wilcard: the ! character can be used as a wildcard. For example, **first_name=!john** would return records where the *first_name* field contains 'john'.
+- List: multiple values may be included in a key-value pair like, **first_name=Jane,John,Sue**
 
 ## Sorting
 To sort the results, include a key-value pair with the key 'sort' and use the '=' operator. The value should be a comma-separated list of column names and their respective sorting orders ('asc' or 'desc'). For example: sort=name|asc,age|desc.
