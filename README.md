@@ -1,7 +1,7 @@
 # api-docs
 API Documentation
 
-##Filtering
+## Filtering
 The query string should contain key-value pairs separated by the respective operator (<=, >=, <>, >, <, =). For example, key>=value. To filter using multiple conditions, separate each key-value pair with an ampersand (&).
 
 Valid operators for filtering:
@@ -15,7 +15,7 @@ Valid operators for filtering:
 
 For string values, you can use the ! character as a wildcard. For example, name!john would return records where the name contains 'john'.
 
-##Sorting
+## Sorting
 To sort the results, include a key-value pair with the key 'sort' and use the '=' operator. The value should be a comma-separated list of column names and their respective sorting orders ('asc' or 'desc'). For example: sort=name|asc,age|desc.
 
 3. Pagination:
