@@ -1,18 +1,16 @@
 # api-docs
 API Documentation
 
-# Filtering, Sorting, and Pagination in the REST API GET Collection Routes
-
-## Introduction to Filtering, Sorting, and Pagination in REST APIs
+## Filtering, Sorting, and Pagination in collection GET requests
 
 
 Filtering, sorting, and pagination are essential techniques in RESTful APIs for managing large datasets. They enhance user experience and optimize performance by reducing the amount of data transferred over the network.
 
-Filtering narrows down a dataset based on specific criteria, allowing users to quickly find relevant information.
+- *Filtering* narrows down a dataset based on specific criteria, allowing users to quickly find relevant information.
 
-Sorting orders a dataset by one or more attributes, enabling users to arrange the data according to their needs.
+- *Sorting* orders a dataset by one or more attributes, enabling users to arrange the data according to their needs.
 
-Pagination divides a dataset into smaller chunks, allowing users to efficiently navigate through large datasets without overwhelming the client-side application or network resources.
+- *Pagination* divides a dataset into smaller chunks, allowing users to efficiently navigate through large datasets without overwhelming the client-side application or network resources.
 
 While these features introduce some complexity in implementation, their benefits in terms of user experience, network efficiency, and server performance outweigh the drawbacks.
 
