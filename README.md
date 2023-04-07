@@ -49,7 +49,8 @@ The concepts of filtering, sorting, and pagination have evolved as essential fea
 
 
 
-
+## Implementation
+___
 
 
 
@@ -70,10 +71,10 @@ For string/date values, you can use:
 - Wilcard: the ! character can be used as a wildcard. For example, **first_name=J!** would return records where the *first_name* field starts with 'J'. Or, **created=2022-02-!** would return only records where *created* equals February, 2022.
 - List: multiple values may be included in a key-value pair like, **first_name=Jane,John,Sue**
 
-## Sorting
+### Sorting
 To sort the results, include a key-value pair with the key 'sort' and use the '=' operator. The value should be a comma-separated list of field names and their respective sorting orders ('asc' or 'desc'). For example: sort=first_name|asc,created|desc.
 
-## Pagination
+### Pagination
 To paginate the results, include the following key-value pairs with '=' operator:
 
 - page: The page number (starting from 1)
