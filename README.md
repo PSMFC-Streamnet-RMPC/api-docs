@@ -50,11 +50,7 @@ The concepts of filtering, sorting, and pagination have evolved as essential fea
 
 
 
-
-
 ## Implementation
-___
-
 
 
 
