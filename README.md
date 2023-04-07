@@ -54,7 +54,7 @@ The concepts of filtering, sorting, and pagination have evolved as essential fea
 
 
 
-## Filtering
+### Filtering
 The query string should contain key-value pairs separated by the respective operator (<=, >=, <>, >, <, =). For example, key>=value. To filter using multiple conditions, separate each key-value pair with an ampersand (&).
 
 Valid operators for filtering:
