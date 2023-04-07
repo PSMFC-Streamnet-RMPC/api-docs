@@ -4,7 +4,7 @@ API Documentation
 # Filtering, Sorting, and Pagination in the REST API GET Collection Routes
 
 ## Introduction
-___
+---
 
 In modern web applications, RESTful APIs play a crucial role in providing a simple and standardized way to exchange data between the client and the server. When dealing with large datasets, it is often essential to provide the ability to filter, sort, and paginate the data to enhance user experience, optimize performance, and reduce the amount of data transferred over the network.
 
