@@ -1,7 +1,11 @@
 # api-docs
 API Documentation
 
-#Introduction to Filtering, Sorting, and Pagination in the REST API GET Collection Routes
+# Filtering, Sorting, and Pagination in the REST API GET Collection Routes
+
+## Introduction
+___
+
 In modern web applications, RESTful APIs play a crucial role in providing a simple and standardized way to exchange data between the client and the server. When dealing with large datasets, it is often essential to provide the ability to filter, sort, and paginate the data to enhance user experience, optimize performance, and reduce the amount of data transferred over the network.
 
 This primer aims to introduce the concepts of filtering, sorting, and pagination in the context of generic REST API GET collection routes and discuss their advantages and disadvantages.
