@@ -14,7 +14,7 @@ Filtering, sorting, and pagination are essential techniques in RESTful APIs for 
 
 While these features introduce some complexity in implementation, their benefits in terms of user experience, network efficiency, and server performance outweigh the drawbacks.
 
-Filtering and sorting are not required, but pagination is implemented by default. If pagination is not specified, the default of page=1 and perpage=10 is applied returning the first ten records in the data set.
+Filtering and sorting are not required, but pagination is implemented by default. If pagination is not specified, the default of *page=1* and *perpage=10* is applied returning the first ten records in the data set.
 
 ## Implementation
 
