@@ -1,50 +1,64 @@
-# api-docs
-API Documentation
+# RMIS API
 
-## Filtering, Sorting, and Pagination in collection GET requests
+Date Created: July 24, 2023 10:03 AM
+Status: To Do
 
+**Documentation for SQL SELECT Statement Generator**
 
-Filtering, sorting, and pagination are essential techniques in RESTful APIs for managing large datasets. They enhance user experience and optimize performance by reducing the amount of data transferred over the network.
+This function is used to generate a SQL SELECT statement from the query string of an HTTP GET request in a Fastify application.
 
-- *Filtering* narrows down a dataset based on specific criteria, allowing users to quickly find relevant information.
+### **Parameters:**
 
-- *Sorting* orders a dataset by one or more attributes, enabling users to arrange the data according to their needs.
+- **sanitizedQueryString**: The cleaned-up query string from the GET request.
+- **tableName**: Name of the database table to fetch data from.
+- **schema**: The schema object representing columns and their types for the table.
+- **searchColumns**: An array of column names that should be searched when a general search is performed.
 
-- *Pagination* divides a dataset into smaller chunks, allowing users to efficiently navigate through large datasets without overwhelming the client-side application or network resources.
+### **Supported Query String Operators:**
 
-While these features introduce some complexity in implementation, their benefits in terms of user experience, network efficiency, and server performance outweigh the drawbacks.
+1. **Standard Comparison Operators**:
+    - **`=`**: Equal to.
+    - **`<>`**: Not equal to.
+    - **`>`**: Greater than.
+    - **`<`**: Less than.
+    - **`>=`**: Greater than or equal to.
+    - **`<=`**: Less than or equal to.
+2. **Special Commands**:
+    - **`page`**: Specify which page of results to retrieve (e.g., **`page=2`**).
+    - **`perpage`**: Specify the number of results per page (e.g., **`perpage=10`**).
+    - **`sort`**: Define sort order for results. Format is **`column|order`**, and multiple sorts can be comma-separated (e.g., **`sort=column1|asc,column2|desc`**).
+    - **`search`**: Performs a general search on specified **`searchColumns`** in the schema. The columns are searched with a **`LIKE`** SQL operator.
+    - **`fields`**: Specify specific fields/columns to retrieve in the result set, comma-separated (e.g., **`fields=column1,column2`**).
+3. **Wildcard Search**:
+    - If the value for a column contains **`!`**, it will be translated into a **`LIKE`** SQL operator with **`%`** replacing **`!`**. For example, **`column1=!value!`** will search for any row where **`column1`** contains the substring "value".
+4. **IN Operator**:
+    - To specify multiple values for a string column, separate the values with a comma (e.g., **`column1=value1,value2`**). By default, this uses the SQL **`IN`** operator. If used with the **`<>`** operator, it will use the **`NOT IN`** SQL operator.
+    - **Important Note**: Before this function analyzes the query operators, JSON schema validation is performed. Therefore, the IN operator is only suitable for string fields. Single number fields with a comma in the value will not be recognized correctly and can result in unexpected behaviors. Ensure that only string fields use the comma-separated format when leveraging the IN operator.
+5. **Date-Time Columns**:
+    - For columns with a date-time format, the function will use the **`date(column)`** format in the SQL statement.
 
-Filtering and sorting are not required, but pagination is implemented by default. If pagination is not specified, the default of *page=1* and *perpage=10* is applied returning the first ten records in the data set.
+### **Return:**
 
-## Implementation
+The function returns an array with the following elements:
 
+- SQL statement for fetching the data.
+- SQL statement for fetching the total count of rows.
+- Array of values that will be used to replace placeholders (**`?`**) in the SQL statements.
+- The page number from the query string or the default value (1) if not specified.
+- (Only if there's an error) Error message.
 
+### **Notes:**
 
-### Filtering
-The query string should contain key-value pairs separated by the respective operator (<=, >=, <>, >, <, =). For example, key>=value. To filter using multiple conditions, separate each key-value pair with an ampersand (&).
+- The function prioritizes **`fields`** over **`search`** in the query string. If both are present, the function will apply filters based on **`fields`** first, then perform the search.
+- If no sort conditions are specified in the query string, the results are sorted by the **`ID`** column by default.
+- Pagination is applied at the end, using the **`LIMIT`** and **`OFFSET`** SQL clauses, with adjustments for certain database types like MS SQL and PostgreSQL.
+- Error handling: If an error occurs, the function will return null values for the SQL statements and an error message.
 
-Valid operators for filtering:
+### **Example:**
 
-- =: Equals
-- <>: Not equals
-- <: Less than
-- &gt;: Greater than
-- <=: Less than or equal to
-- &gt;=: Greater than or equal to
+Given the query string **`column1=>=value1&column2=value2,value3&sort=column1|asc&page=2&perpage=5&search=searchValue`**, the function will generate:
 
-For string/date values, you can use:
-- Wilcard: the ! character can be used as a wildcard. For example, **first_name=J!** would return records where the *first_name* field starts with 'J'. Or, **created=2022-02-!** would return only records where *created* equals February, 2022.
-- List: multiple values may be included as a comma-separated list in a key-value pair: **first_name=Jane,John,Sue**
-
-### Sorting
-To sort the results, include a key-value pair with the key 'sort' and use the '=' operator. The value should be a comma-separated list of field names and their respective sorting orders ('asc' or 'desc'). For example: sort=first_name|asc,created|desc.
-
-### Pagination
-To paginate the results, include the following key-value pairs with '=' operator:
-
-- page: The page number (starting from 1)
-- perpage: The number of records per page
-
-For example, page=2&perpage=20.
-
-Here's a sample query string that filters, sorts, and paginates the results:
+- A SQL statement filtering rows where **`column1`** is greater than or equal to "value1", and **`column2`** is either "value2" or "value3".
+- Sort the results in ascending order by **`column1`**.
+- Return results for the 2nd page, with 5 results per page.
+- Search specified search columns for the string "searchValue".
