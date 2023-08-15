@@ -1,19 +1,5 @@
 # RMIS API
 
-Date Created: July 24, 2023 10:03 AM
-Status: To Do
-
-**Documentation for SQL SELECT Statement Generator**
-
-This function is used to generate a SQL SELECT statement from the query string of an HTTP GET request in a Fastify application.
-
-### **Parameters:**
-
-- **sanitizedQueryString**: The cleaned-up query string from the GET request.
-- **tableName**: Name of the database table to fetch data from.
-- **schema**: The schema object representing columns and their types for the table.
-- **searchColumns**: An array of column names that should be searched when a general search is performed.
-
 ### **Supported Query String Operators:**
 
 1. **Standard Comparison Operators**:
@@ -31,21 +17,11 @@ This function is used to generate a SQL SELECT statement from the query string o
     - **`fields`**: Specify specific fields/columns to retrieve in the result set, comma-separated (e.g., **`fields=column1,column2`**).
 3. **Wildcard Search**:
     - If the value for a column contains **`!`**, it will be translated into a **`LIKE`** SQL operator with **`%`** replacing **`!`**. For example, **`column1=!value!`** will search for any row where **`column1`** contains the substring "value".
-4. **IN Operator**:
-    - To specify multiple values for a string column, separate the values with a comma (e.g., **`column1=value1,value2`**). By default, this uses the SQL **`IN`** operator. If used with the **`<>`** operator, it will use the **`NOT IN`** SQL operator.
+4. **Multiple Values**:
+    - To specify multiple values for a string column, separate the values with a comma (e.g., **`column1=value1,value2`**). If used with the **`<>`** operator, it will use the **`NOT IN`** SQL operator.
     - **Important Note**: Before this function analyzes the query operators, JSON schema validation is performed. Therefore, the IN operator is only suitable for string fields. Single number fields with a comma in the value will not be recognized correctly and can result in unexpected behaviors. Ensure that only string fields use the comma-separated format when leveraging the IN operator.
 5. **Date-Time Columns**:
     - For columns with a date-time format, the function will use the **`date(column)`** format in the SQL statement.
-
-### **Return:**
-
-The function returns an array with the following elements:
-
-- SQL statement for fetching the data.
-- SQL statement for fetching the total count of rows.
-- Array of values that will be used to replace placeholders (**`?`**) in the SQL statements.
-- The page number from the query string or the default value (1) if not specified.
-- (Only if there's an error) Error message.
 
 ### **Notes:**
 
