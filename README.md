@@ -27,7 +27,7 @@
 
 - The function prioritizes **`fields`** over **`search`** in the query string. If both are present, the function will apply filters based on **`fields`** first, then perform the search.
 - If no sort conditions are specified in the query string, the results are sorted by the **`ID`** column by default.
-- Pagination is applied at the end, using the **`LIMIT`** and **`OFFSET`** SQL clauses, with adjustments for certain database types like MS SQL and PostgreSQL.
+- Pagination is applied at the end.
 - Error handling: If an error occurs, the function will return null values for the SQL statements and an error message.
 
 ### **Example:**
