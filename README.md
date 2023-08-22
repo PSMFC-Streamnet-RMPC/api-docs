@@ -19,8 +19,9 @@
     - If the value for a string column contains **`!`**, it will be treated as a wildcard character similar to a SQL wildcard. For example, **`column1=!value!`** will search for any row where **`column1`** contains the substring "value". The expression **`column1=!value`** will search for any row where **`column1`** ends with "value".
 
 4. **Multiple Values**:
-    - To specify multiple values for a string column, separate the values with a comma (e.g., **`column1=value1,value2`**). If used with the **`<>`** operator, it will use the **`NOT IN`** SQL operator.
-    - **Important Note**: Before this function analyzes the query operators, JSON schema validation is performed. Therefore, the IN operator is only suitable for string fields. Single number fields with a comma in the value will not be recognized correctly and can result in unexpected behaviors. Ensure that only string fields use the comma-separated format when leveraging the IN operator.
+    - You may specify multiple values for any string field that defines an enumerated list (enum) of possible values.
+    - Separate the values with a comma (e.g., **`column1=value1,value2`**). If used with the **`<>`** operator, it will select only records that **`DO NOT`** have any of the vales.
+    - **Important Note**: Before this function analyzes the query operators, JSON schema validation is performed. Therefore, the multiple values operator is only suitable for string fields. Single number fields with a comma in the value will not be recognized correctly and can result in unexpected behaviors. Ensure that only string fields with an enum list use the comma-separated format when leveraging the IN operator.
 <!--
 5. **Date-Time Columns**:
     - For columns with a date-time format, the function will use the **`date(column)`** format in the SQL statement.
