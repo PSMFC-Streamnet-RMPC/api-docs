@@ -16,7 +16,7 @@
     - **`search`**: Performs a general search on specified **`searchColumns`** in the schema. The columns are searched similar to a **`LIKE`** SQL operator.
     - **`fields`**: Specify specific fields/columns to retrieve in the result set, comma-separated (e.g., **`fields=column1,column2`**).
 3. **Wildcard Search**:
-    - If the value for a string column contains **`!`**, it will be treated as a wildcard character similar to a SQL wildcard. For example, **`column1=!value!`** will search for any row where **`column1`** contains the substring "value". The expression **`column1=!value`** will search for any row where **`column1`** ends with "value".
+    - If the value for a string column contains **`~`**, it will be treated as a wildcard character similar to a SQL wildcard. For example, **`column1=~value~`** will search for any row where **`column1`** contains the substring "value". The expression **`column1=~value`** will search for any row where **`column1`** ends with "value".
 
 4. **Multiple Values**:
     - You may specify multiple values for any string field that defines an enumerated list (enum) of possible values.
