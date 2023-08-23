@@ -28,6 +28,22 @@
 -->
 ### **Notes:**
 
+- The > < <= >= <> operators will work on all data field types, but will be most useful for numbers and dates. 
+- When using the > (greater than) or < (less than) operators for string
+  fields, the comparison is done based on the 
+  lexicographical (dictionary) order of the strings. In most databases, as in the RMIS database, 
+  this lexicographical order is based on the ASCII values of the 
+  characters in the strings.
+
+  The > operator will return true if the first string is lexicographically 
+  greater (comes later in the dictionary) than the second string, and 
+  the < operator will return true if the first string is lexicographically 
+  smaller (comes earlier in the dictionary) than the second string.
+
+  Keep in mind that the comparison is case-sensitive, so uppercase letters 
+  have lower ASCII values than lowercase letters, and consequently, 
+  uppercase letters are considered "smaller" in lexicographic comparisons. 
+  
 - The operator evaluation prioritizes **`fields`** over **`search`** in the query string. If both are present, evaluation will apply filters based on **`fields`** first, then perform the search.
 - If no sort conditions are specified in the query string, the results are sorted by the **`ID`** column by default.
 - Pagination is applied at the end.
