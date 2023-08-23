@@ -1,6 +1,6 @@
 # RMIS API
 
-### **Supported Query String Operators:**
+### **Supported GET Query String Operators:**
 
 1. **Standard Comparison Operators**:
     - **`=`**: Equal to.
