@@ -34,7 +34,7 @@
 
 ### **Example:**
 
-Given the query string **`column1=>=value1&&sort=column1|asc&page=2&perpage=5&search=searchValue`**, the function will generate:
+Given the query string **`column1=>=value1&sort=column1|asc&page=2&perpage=5&search=searchValue`**, the function will generate:
 
 - A SQL statement filtering rows where **`column1`** is greater than or equal to "value1".
 - Sort the results in ascending order by **`column1`**.
