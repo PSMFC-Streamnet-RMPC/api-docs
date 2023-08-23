@@ -42,7 +42,9 @@
 
   Keep in mind that the comparison is case-sensitive, so uppercase letters 
   have lower ASCII values than lowercase letters, and consequently, 
-  uppercase letters are considered "smaller" in lexicographic comparisons. 
+  uppercase letters are considered "smaller" in lexicographic comparisons.
+
+- For simple enumerated string field types like **species** or **run**, that are represented as numbers, the > < <= >= <> operators should work fine.
   
 - The operator evaluation prioritizes **`fields`** over **`search`** in the query string. If both are present, evaluation will apply filters based on **`fields`** first, then perform the search.
 - If no sort conditions are specified in the query string, the results are sorted by the **`ID`** column by default.
