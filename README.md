@@ -21,7 +21,7 @@
 4. **Multiple Values**:
     - You may specify multiple values for any string field that defines an enumerated list (enum) of possible values.
     - Separate the values with a comma (e.g., **`column1=value1,value2`**). If used with the **`<>`** operator, it will select only records that **`DO NOT`** have any of the vales.
-    - **Important Note**: Before this function analyzes the query operators, JSON schema validation is performed. Therefore, the multiple values operator is only suitable for string fields. Single number fields with a comma in the value will not be recognized correctly and can result in unexpected behaviors. Ensure that only string fields with an enum list use the comma-separated format when leveraging the IN operator.
+    - **Important Note**: Before this function analyzes the query operators, JSON schema validation is performed. Therefore, the multiple values operator is only suitable for string fields. Single number fields with a comma in the value will not be recognized correctly and can result in unexpected behaviors. 
 <!--
 5. **Date-Time Columns**:
     - For columns with a date-time format, the function will use the **`date(column)`** format in the SQL statement.
@@ -52,9 +52,9 @@
 
 ### **Example:**
 
-Given the query string **`column1=>=value1&sort=column1|asc&page=2&perpage=5&search=searchValue`**, the function will generate:
+Given the query string **`column1>=value1&sort=column1|asc&page=2&perpage=5&search=searchValue`**, the deliver results:
 
-- A SQL statement filtering rows where **`column1`** is greater than or equal to "value1".
+- filtering rows where **`column1`** is greater than or equal to "value1".
 - Sort the results in ascending order by **`column1`**.
 - Return results for the 2nd page, with 5 results per page.
 - Search specified search columns for the string "searchValue".
