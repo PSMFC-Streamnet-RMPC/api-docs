@@ -1,6 +1,10 @@
 
 # Interacting with the RMIS API
 
+## R Example
+There is an R package written by Matt Callahan at NOAA which encapsulates retrieving data from the RMIS API. You can find instruction and code in the repository [RMISR](https://github.com/MattCallahan-NOAA/rmisr).
+
+
 ## Javascript Example
 Get the first 10 location records where `reporting_agency` = `ODFW`
 
