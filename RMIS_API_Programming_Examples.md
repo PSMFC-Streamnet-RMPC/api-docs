@@ -51,7 +51,7 @@ params = {
     'reporting_agency': "ODFW"
 }
 headers = {
-    'x-api-key': "YOUR_API_KEY"
+    'xapikey': "YOUR_API_KEY"
 }
 
 response = requests.get(url, params=params, headers=headers)
@@ -77,7 +77,7 @@ $finalUrl = $url . '?' . http_build_query($params);
 
 $apiKey = "YOUR_API_KEY";
 $headers = array(
-    "x-api-key: {$apiKey}"
+    "xapikey: {$apiKey}"
 );
 
 $ch = curl_init($finalUrl);
@@ -121,7 +121,7 @@ Module Module1
         Dim client As HttpClient = New HttpClient()
 
         ' Set up the request headers
-        client.DefaultRequestHeaders.Add("x-api-key", apiKey)
+        client.DefaultRequestHeaders.Add("xapikey", apiKey)
 
         ' Set up the query parameters
         Dim queryParams As New Dictionary(Of String, String) From {
